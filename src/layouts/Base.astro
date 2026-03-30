@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = 'PicoClaw — Lightweight Cross-Platform Download Tool',
-  description = 'Download PicoClaw for macOS, Windows, Linux, FreeBSD, and more. Lightweight, cross-platform, blazing fast CLI tool by Sipeed.',
+  title = 'PicoClaw — Ultra-Lightweight AI Assistant in Go for Raspberry Pi, Linux & RISC-V',
+  description = 'PicoClaw is a self-hosted AI assistant written in Go. Single binary, <10MB RAM, 1s startup. Runs on Raspberry Pi, RISC-V, ARM64, x86_64, Android & more. Supports Telegram, Discord, Slack, DingTalk, WeChat.',
   canonical = 'https://picoclaw.io',
   ogImage = 'https://picoclaw.io/logo.webp',
   lang = 'en',
@@ -24,9 +24,14 @@ const {
   <!-- Primary Meta Tags -->
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="keywords" content="PicoClaw, download, CLI tool, cross-platform, macOS, Windows, Linux, FreeBSD, NetBSD, RISC-V, ARM, Sipeed, open source" />
+  <meta name="keywords" content="PicoClaw, AI assistant, lightweight AI, Go, self-hosted, Raspberry Pi, RISC-V, ARM64, Linux, macOS, Windows, Android, Termux, Telegram bot, Discord bot, Slack bot, single binary, low memory, edge AI, Sipeed, open source" />
   <meta name="author" content="Sipeed" />
   <link rel="canonical" href={canonical} />
+
+  <!-- hreflang: multi-language support -->
+  <link rel="alternate" hreflang="en" href={canonical} />
+  <link rel="alternate" hreflang="zh" href={canonical} />
+  <link rel="alternate" hreflang="x-default" href={canonical} />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -58,32 +63,50 @@ const {
   </script>
 
   <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "PicoClaw",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "macOS, Windows, Linux, FreeBSD, NetBSD, Android",
-    "url": "https://picoclaw.io",
-    "downloadUrl": "https://picoclaw.io",
-    "image": "https://picoclaw.io/logo.webp",
-    "description": "Lightweight, cross-platform, blazing fast CLI tool",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
+  <script type="application/ld+json" set:html={JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "PicoClaw",
+      "alternateName": "PicoClaw AI Assistant",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "AI Assistant",
+      "operatingSystem": "macOS, Windows, Linux, FreeBSD, NetBSD, Android",
+      "processorRequirements": "x86_64, ARM64, ARMv7, ARMv6, RISC-V 64, MIPS, s390x",
+      "memoryRequirements": "10MB",
+      "url": "https://picoclaw.io",
+      "downloadUrl": "https://picoclaw.io",
+      "installUrl": "https://docs.picoclaw.io/docs/getting-started/",
+      "image": "https://picoclaw.io/logo.webp",
+      "screenshot": "https://picoclaw.io/logo.webp",
+      "description": "Ultra-lightweight personal AI assistant written in Go. Single binary, <10MB RAM, boots in under 1 second. Self-hosted on Raspberry Pi, RISC-V, Linux, Android and more. Supports Telegram, Discord, Slack, DingTalk, Feishu, WeCom, LINE, QQ.",
+      "featureList": "Single binary deployment, <10MB memory, 1s startup, Multi-LLM support (OpenAI/Claude/DeepSeek), 9+ chat channels, Web search, Scheduled tasks, Docker support",
+      "softwareVersion": "latest",
+      "license": "https://github.com/sipeed/picoclaw/blob/main/LICENSE",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Sipeed",
+        "url": "https://www.sipeed.com"
+      }
     },
-    "author": {
+    {
+      "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Sipeed",
-      "url": "https://www.sipeed.com"
-    },
-    "sourceOrganization": {
-      "@type": "Organization",
-      "name": "Sipeed",
-      "url": "https://github.com/sipeed"
+      "url": "https://www.sipeed.com",
+      "logo": "https://picoclaw.io/logo.webp",
+      "sameAs": [
+        "https://github.com/sipeed",
+        "https://discord.gg/V4sAZ9XWpN"
+      ]
     }
-  })} />
+  ])} />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
