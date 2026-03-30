@@ -2,12 +2,24 @@
 import Base from '../layouts/Base.astro';
 ---
 <Base>
-  <header>
+  <nav class="top-nav">
+    <a href="/" class="nav-brand">
+      <img src="/icon.png" alt="" width="28" height="28" class="nav-logo" />
+      <span>PicoClaw</span>
+    </a>
+    <div class="nav-links">
+      <a href="/download/" class="nav-link" data-i18n="nav-download">Download</a>
+      <a href="/changelog/" class="nav-link" data-i18n="nav-changelog">Changelog</a>
+      <a href="https://docs.picoclaw.io" target="_blank" rel="noopener noreferrer" class="nav-link" data-i18n="nav-docs">Docs</a>
+      <a href="https://github.com/sipeed/picoclaw" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a>
+    </div>
     <div class="lang-toggle" id="lang-toggle">
       <button class="lang-btn" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="zh">中文</button>
     </div>
+  </nav>
 
+  <header>
     <div class="logo-wrap reveal d1">
       <img src="/logo.webp" alt="PicoClaw — Ultra-lightweight AI assistant for Raspberry Pi, RISC-V and Linux" width="160" height="160" />
     </div>
@@ -49,22 +61,16 @@ import Base from '../layouts/Base.astro';
       </a>
     </nav>
 
-    <div class="hero-dl reveal d3" id="hero-dl" style="display:none">
-      <a class="hero-dl-btn" id="hero-dl-btn" href="#">
+    <div class="hero-dl reveal d3">
+      <a class="hero-dl-btn" href="/download/">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
           <polyline points="7 10 12 15 17 10"/>
           <line x1="12" y1="15" x2="12" y2="3"/>
         </svg>
-        <span id="hero-dl-label">Download</span>
+        <span data-i18n="hero-dl-btn">Download PicoClaw</span>
       </a>
-      <button class="hero-dl-expand" id="hero-dl-expand" aria-label="More download options">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </button>
     </div>
-    <p class="hero-dl-sub reveal d3" id="hero-dl-sub" style="display:none"></p>
   </header>
 
   <!-- Product Landing Section -->
@@ -122,13 +128,6 @@ import Base from '../layouts/Base.astro';
   </section>
 
   <main>
-    <section aria-label="Platform downloads">
-      <h2 class="section-label reveal d4" data-i18n="section-label">Choose your platform</h2>
-      <div class="os-grid reveal d5" id="os-grid">
-        <div class="state-msg" style="grid-column:1/-1" data-i18n="loading">Loading&hellip;</div>
-      </div>
-    </section>
-
     <section class="subscribe-section" aria-label="Stay connected">
       <h2 class="section-label" data-i18n="subscribe-title">Stay Connected</h2>
       <p style="color:var(--text-muted);font-size:0.9rem;" data-i18n="subscribe-desc">Subscribe for news and product updates.</p>
@@ -150,7 +149,7 @@ import Base from '../layouts/Base.astro';
         <article class="form-card community-card">
           <h3 data-i18n="community-wechat">WeChat Group</h3>
           <a href="https://raw.githubusercontent.com/sipeed/picoclaw/main/assets/wechat.png" target="_blank" rel="noopener noreferrer">
-            <img src="https://raw.githubusercontent.com/sipeed/picoclaw/main/assets/wechat.png" alt="WeChat QR Code" width="140" height="140" style="border-radius:8px;margin:8px 0;" loading="lazy" />
+            <img src="https://raw.githubusercontent.com/sipeed/picoclaw/main/assets/wechat.png" alt="WeChat QR Code" style="width:140px;height:auto;border-radius:8px;margin:8px 0;" loading="lazy" />
           </a>
           <p data-i18n="community-wechat-desc" style="text-align:center;">Scan QR code to join the WeChat group.</p>
         </article>
@@ -162,44 +161,6 @@ import Base from '../layouts/Base.astro';
       </div>
     </section>
   </main>
-
-  <!-- Download Modal -->
-  <div class="backdrop" id="backdrop" role="presentation">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-text">
-      <div class="modal-head">
-        <img class="modal-icon" id="modal-icon" src="" alt="" width="34" height="34" />
-        <div class="modal-titles">
-          <div class="modal-title" id="modal-title-text"></div>
-          <div class="modal-sub" data-i18n="modal-sub">Select architecture to download</div>
-        </div>
-        <button class="close-btn" id="close-btn" aria-label="Close">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-        </button>
-      </div>
-      <div class="divider"></div>
-      <div class="arch-list" id="arch-list"></div>
-      <div class="modal-foot">
-        <span class="modal-foot-note" data-i18n="modal-foot-note">Always downloads the latest release</span>
-        <a class="chk-link" id="checksums-link" href="#" target="_blank" rel="noopener noreferrer">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="20 6 9 17 4 12"/>
-          </svg>
-          <span data-i18n="checksums">SHA256 Checksums</span>
-        </a>
-      </div>
-      <div class="source-toggle">
-        <span class="source-label" data-i18n="source-label">Download source:</span>
-        <div class="source-btns" id="source-btns">
-          <button class="source-btn" data-source="github">GitHub</button>
-          <button class="source-btn" data-source="cdn">Sipeed CDN</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <footer>
     <nav class="footer-links" aria-label="Footer links">
@@ -233,6 +194,10 @@ import Base from '../layouts/Base.astro';
         'footer-docs':          'Docs',
         'footer-releases':      'All Releases',
         'footer-issues':        'Issues',
+        'nav-download':         'Download',
+        'nav-changelog':        'Changelog',
+        'nav-docs':             'Docs',
+        'hero-dl-btn':          'Download PicoClaw',
         'footer-download':      'Download',
         'footer-changelog':     'Changelog',
         'footer-site-repo':     'Site Source',
@@ -294,6 +259,10 @@ import Base from '../layouts/Base.astro';
         'footer-docs':          '\u6587\u6863',
         'footer-releases':      '\u6240\u6709\u7248\u672c',
         'footer-issues':        '\u95ee\u9898\u53cd\u9988',
+        'nav-download':         '\u4e0b\u8f7d',
+        'nav-changelog':        '\u66f4\u65b0\u65e5\u5fd7',
+        'nav-docs':             '\u6587\u6863',
+        'hero-dl-btn':          '\u4e0b\u8f7d PicoClaw',
         'footer-download':      '\u4e0b\u8f7d',
         'footer-changelog':     '\u66f4\u65b0\u65e5\u5fd7',
         'footer-site-repo':     '\u7f51\u7ad9\u6e90\u7801',
@@ -386,278 +355,7 @@ import Base from '../layouts/Base.astro';
       if (btn) switchLang(btn.dataset.lang);
     });
 
-    // ── Release data ─────────────────────────────────────────────────
-    var PLATFORMS = [
-      {
-        id: 'macos', name: 'macOS', icon: 'apple', color: '#b0b0b5',
-        archs: [
-          { label: 'Apple Silicon (arm64)', desc: 'M1 / M2 / M3 and later',  file: 'picoclaw_Darwin_arm64.tar.gz' },
-          { label: 'Intel (x86_64)',        desc: 'Intel-based Mac',           file: 'picoclaw_Darwin_x86_64.tar.gz' },
-        ],
-      },
-      {
-        id: 'windows', name: 'Windows', icon: 'windows', color: '#0a84ff',
-        archs: [
-          { label: 'x86_64 (64-bit)', desc: 'Recommended for most PCs', file: 'picoclaw_Windows_x86_64.zip' },
-          { label: 'ARM64',           desc: 'Windows on ARM',           file: 'picoclaw_Windows_arm64.zip' },
-        ],
-      },
-      {
-        id: 'linux', name: 'Linux', icon: 'linux', color: '#f5a623',
-        archs: [
-          { label: 'x86_64',             desc: '64-bit \u00b7 Recommended',        file: 'picoclaw_Linux_x86_64.tar.gz',  packages: { deb: 'picoclaw_x86_64.deb',   rpm: 'picoclaw_x86_64.rpm'   } },
-          { label: 'ARM64 (arm64)',       desc: 'Raspberry Pi 4/5, modern SBCs',    file: 'picoclaw_Linux_arm64.tar.gz',   packages: { deb: 'picoclaw_aarch64.deb',  rpm: 'picoclaw_aarch64.rpm'  } },
-          { label: 'ARMv7 (armv7)',       desc: 'Raspberry Pi 2/3, older SBCs',     file: 'picoclaw_Linux_armv7.tar.gz',   packages: { deb: 'picoclaw_armv7.deb',    rpm: 'picoclaw_armv7.rpm'    } },
-          { label: 'ARMv6 (armv6)',       desc: 'Raspberry Pi 1 / Zero',            file: 'picoclaw_Linux_armv6.tar.gz',   packages: { deb: 'picoclaw_armv6.deb',    rpm: 'picoclaw_armv6.rpm'    } },
-          { label: 'RISC-V 64 (riscv64)', desc: 'RISC-V 64-bit',                   file: 'picoclaw_Linux_riscv64.tar.gz', packages: { deb: 'picoclaw_riscv64.deb',  rpm: 'picoclaw_riscv64.rpm'  } },
-          { label: 'MIPS (mipsle)',       desc: 'MIPS little-endian 32-bit',        file: 'picoclaw_Linux_mipsle.tar.gz',  packages: { deb: 'picoclaw_mipsle.deb',   rpm: 'picoclaw_mipsle.rpm'   } },
-          { label: 's390x',              desc: 'IBM Z / LinuxONE',                  file: 'picoclaw_Linux_s390x.tar.gz',   packages: { deb: 'picoclaw_s390x.deb',    rpm: 'picoclaw_s390x.rpm'    } },
-        ],
-      },
-      {
-        id: 'freebsd', name: 'FreeBSD', icon: 'freebsd', color: '#d03030',
-        archs: [
-          { label: 'x86_64',        desc: '64-bit \u00b7 Recommended', file: 'picoclaw_Freebsd_x86_64.tar.gz' },
-          { label: 'ARM64 (arm64)', desc: 'AArch64',                   file: 'picoclaw_Freebsd_arm64.tar.gz'  },
-          { label: 'ARMv7 (armv7)', desc: 'ARM 32-bit',                file: 'picoclaw_Freebsd_armv7.tar.gz'  },
-        ],
-      },
-      {
-        id: 'netbsd', name: 'NetBSD', icon: 'netbsd', color: '#FF6600',
-        archs: [
-          { label: 'x86_64',        desc: '64-bit \u00b7 Recommended', file: 'picoclaw_Netbsd_x86_64.tar.gz' },
-          { label: 'ARM64 (arm64)', desc: 'AArch64',                   file: 'picoclaw_Netbsd_arm64.tar.gz'  },
-        ],
-      },
-      {
-        id: 'android', name: 'Android', icon: 'android', color: '#3ddc84',
-        link: 'https://github.com/sipeed/picoclaw?tab=readme-ov-file#-run-on-old-android-phones',
-        sub: { en: 'View Guide', zh: '\u67e5\u770b\u6559\u7a0b' },
-      },
-    ];
-
-    // ── Constants ─────────────────────────────────────────────────
-    var BASE_DL_GITHUB = 'https://github.com/sipeed/picoclaw/releases/latest/download/';
-    var BASE_DL_CDN    = 'https://picoclaw-downloads.tos-cn-beijing.volces.com/latest/';
-    var RELEASES_URL   = 'https://github.com/sipeed/picoclaw/releases/latest';
-
-    var currentSource = currentLang === 'zh' ? 'cdn' : 'github';
-
-    function getBaseDL() {
-      return currentSource === 'cdn' ? BASE_DL_CDN : BASE_DL_GITHUB;
-    }
-    var ICON_CDN = 'https://cdn.simpleicons.org/';
-
-    var INLINE_ICONS = {
-      windows: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="{COLOR}"><path d="M3 5L10.5 3.9V11H3zM11.5 3.7L21 2.5V11H11.5zM3 12H10.5V20.1L3 19zM11.5 12H21V21.5L11.5 20.3z"/></svg>',
-    };
-
-    function iconUrl(slug, color) {
-      if (INLINE_ICONS[slug]) {
-        var svg = INLINE_ICONS[slug].replace('{COLOR}', color);
-        return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
-      }
-      return ICON_CDN + slug + '/' + color.replace('#', '');
-    }
-
-    var ARROW_SVG = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
-
-    var DL_SVG = '<svg class="dl-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
-
-    var platformData = null;
-
-    function buildCards(platforms) {
-      platformData = platforms;
-      var grid = document.getElementById('os-grid');
-      grid.innerHTML = '';
-      platforms.forEach(function(p) {
-        var card = document.createElement('div');
-        card.className = 'os-card';
-        card.style.setProperty('--c', p.color);
-        card.setAttribute('role', 'button');
-        card.setAttribute('tabindex', '0');
-        var subText = p.sub ? (p.sub[currentLang] || p.sub.en) : t('arch-count')(p.archs.length);
-        card.innerHTML =
-          '<img class="os-icon" src="' + iconUrl(p.icon, p.color) + '" alt="' + p.name + '" width="54" height="54" />' +
-          '<div class="os-info"><div class="os-name">' + p.name + '</div><div class="os-sub">' + subText + '</div></div>' +
-          '<div class="os-arrow">' + ARROW_SVG + '</div>';
-        var action = p.link
-          ? function() { window.open(p.link, '_blank', 'noopener,noreferrer'); }
-          : (function(platform) { return function() { openModal(platform); }; })(p);
-        card.addEventListener('click', action);
-        card.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); action(); }
-        });
-        grid.appendChild(card);
-      });
-    }
-
-    var currentModalPlatform = null;
-
-    function renderArchList(p) {
-      var base = getBaseDL();
-      var list = document.getElementById('arch-list');
-      list.innerHTML = '';
-      p.archs.forEach(function(arch) {
-        var el;
-        if (arch.packages) {
-          el = document.createElement('div');
-          el.className = 'arch-item arch-item--multi';
-          var fmtBtns =
-            '<a class="fmt-btn" href="' + base + arch.file + '" target="_blank" rel="noopener noreferrer">.tar.gz</a>' +
-            '<a class="fmt-btn" href="' + base + arch.packages.deb + '" target="_blank" rel="noopener noreferrer">.deb</a>' +
-            '<a class="fmt-btn" href="' + base + arch.packages.rpm + '" target="_blank" rel="noopener noreferrer">.rpm</a>';
-          el.innerHTML =
-            '<div class="arch-left"><span class="arch-label">' + arch.label + '</span><span class="arch-file">' + arch.desc + '</span></div>' +
-            '<div class="arch-right">' + fmtBtns + '</div>';
-        } else {
-          el = document.createElement('a');
-          el.className = 'arch-item';
-          el.href = base + arch.file;
-          el.target = '_blank';
-          el.rel = 'noopener noreferrer';
-          el.innerHTML =
-            '<div class="arch-left"><span class="arch-label">' + arch.label + '</span><span class="arch-file">' + arch.file + '</span></div>' +
-            '<div class="arch-right">' + DL_SVG + '</div>';
-        }
-        list.appendChild(el);
-      });
-    }
-
-    function updateSourceBtns() {
-      document.querySelectorAll('#source-btns .source-btn').forEach(function(btn) {
-        btn.classList.toggle('active', btn.dataset.source === currentSource);
-      });
-    }
-
-    function openModal(p) {
-      currentModalPlatform = p;
-      document.getElementById('modal-title-text').textContent = p.name;
-      document.getElementById('modal-icon').src = iconUrl(p.icon, p.color);
-      document.getElementById('modal-icon').alt = p.name;
-      renderArchList(p);
-      updateSourceBtns();
-      document.getElementById('backdrop').classList.add('open');
-      document.body.style.overflow = 'hidden';
-      requestAnimationFrame(function() {
-        var first = document.getElementById('arch-list').querySelector('.arch-item');
-        if (first) first.focus();
-      });
-    }
-
-    function closeModal() {
-      document.getElementById('backdrop').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    document.getElementById('backdrop').addEventListener('click', function(e) {
-      if (e.target === e.currentTarget) closeModal();
-    });
-    document.getElementById('close-btn').addEventListener('click', closeModal);
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
-
-    document.getElementById('source-btns').addEventListener('click', function(e) {
-      var btn = e.target.closest('.source-btn');
-      if (!btn) return;
-      currentSource = btn.dataset.source;
-      updateSourceBtns();
-      if (currentModalPlatform) renderArchList(currentModalPlatform);
-    });
-
-    // ── Platform detection ───────────────────────────────────────
-    function detectPlatformSync() {
-      var ua = navigator.userAgent;
-      var platform = navigator.platform || '';
-      var os = null, arch = null;
-
-      if (/Macintosh|Mac OS X/.test(ua)) {
-        os = 'macos'; arch = 'arm64';
-      } else if (/Windows/.test(ua)) {
-        os = 'windows'; arch = 'x86_64';
-        if (/ARM/.test(ua) || /WOA/.test(ua)) arch = 'arm64';
-      } else if (/Android/.test(ua)) {
-        os = 'android';
-      } else if (/Linux/.test(ua)) {
-        os = 'linux'; arch = 'x86_64';
-        if (/aarch64|arm64/.test(platform)) arch = 'arm64';
-        else if (/armv7/.test(platform)) arch = 'armv7';
-      } else if (/FreeBSD/.test(ua)) {
-        os = 'freebsd'; arch = 'x86_64';
-        if (/aarch64|arm64/.test(platform)) arch = 'arm64';
-      }
-      return { os: os, arch: arch };
-    }
-
-    var detectedPlatform = detectPlatformSync();
-
-    if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
-      navigator.userAgentData.getHighEntropyValues(['architecture', 'platform']).then(function(hints) {
-        var archHint = (hints.architecture || '').toLowerCase();
-        if (detectedPlatform.os === 'macos') {
-          detectedPlatform.arch = (archHint === 'arm') ? 'arm64' : 'x86_64';
-        } else if (detectedPlatform.os === 'windows') {
-          detectedPlatform.arch = (archHint === 'arm') ? 'arm64' : 'x86_64';
-        }
-        updateHeroDownload();
-      }).catch(function() {});
-    }
-
-    function detectPlatform() { return detectedPlatform; }
-
-    function findMatchingDownload(os, arch) {
-      var p = PLATFORMS.find(function(p) { return p.id === os; });
-      if (!p || !p.archs) return null;
-      var a = p.archs.find(function(a) { return a.file.toLowerCase().indexOf(arch) !== -1; });
-      if (!a) return null;
-      return { platform: p, arch: a };
-    }
-
-    function setupHeroDownload() {
-      var det = detectPlatform();
-      if (!det.os || det.os === 'android') return;
-      var match = findMatchingDownload(det.os, det.arch);
-      if (!match) return;
-
-      var heroWrap = document.getElementById('hero-dl');
-      var heroBtn = document.getElementById('hero-dl-btn');
-      var heroLabel = document.getElementById('hero-dl-label');
-      var heroExpand = document.getElementById('hero-dl-expand');
-      var heroSub = document.getElementById('hero-dl-sub');
-
-      heroLabel.textContent = t('hero-dl-for')(match.platform.name, det.arch);
-      heroBtn.href = getBaseDL() + match.arch.file;
-      heroBtn.target = '_blank';
-      heroBtn.rel = 'noopener noreferrer';
-      heroSub.innerHTML = match.arch.file + ' \u00b7 <a href="#os-grid" id="hero-other-link">' + t('hero-dl-other') + '</a>';
-      heroWrap.style.display = '';
-      heroSub.style.display = '';
-      heroExpand.addEventListener('click', function() { openModal(match.platform); });
-    }
-
-    function updateHeroDownload() {
-      var det = detectPlatform();
-      if (!det.os || det.os === 'android') return;
-      var match = findMatchingDownload(det.os, det.arch);
-      if (!match) return;
-      document.getElementById('hero-dl-label').textContent = t('hero-dl-for')(match.platform.name, det.arch);
-      document.getElementById('hero-dl-btn').href = getBaseDL() + match.arch.file;
-      document.getElementById('hero-dl-sub').innerHTML = match.arch.file + ' \u00b7 <a href="#os-grid">' + t('hero-dl-other') + '</a>';
-    }
-
-    var _origSwitchLang = switchLang;
-    switchLang = function(lang) {
-      _origSwitchLang(lang);
-      updateHeroDownload();
-    };
-
-    document.getElementById('source-btns').addEventListener('click', function() {
-      setTimeout(updateHeroDownload, 0);
-    });
-
     applyStaticLang();
-    document.getElementById('checksums-link').href = RELEASES_URL;
-    buildCards(PLATFORMS);
-    setupHeroDownload();
   </script>
 </Base>
 
@@ -666,7 +364,7 @@ import Base from '../layouts/Base.astro';
     position: relative;
     z-index: 1;
     text-align: center;
-    padding: 80px 20px 60px;
+    padding: 30px 20px 60px;
   }
 
   .site-title {
@@ -732,8 +430,8 @@ import Base from '../layouts/Base.astro';
   }
   .hero-dl-btn {
     display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 32px; border-radius: 12px 0 0 12px;
-    border: 1.5px solid var(--accent); border-right: none;
+    padding: 14px 36px; border-radius: 12px;
+    border: 1.5px solid var(--accent);
     background: var(--accent); color: #fff;
     font-size: 1.05rem; font-weight: 600;
     text-decoration: none; cursor: pointer; font-family: inherit;
@@ -1009,11 +707,29 @@ import Base from '../layouts/Base.astro';
   footer :global(a:hover) { text-decoration: underline; }
   .footer-sep { color: var(--border-h); }
 
+  /* ─── TOP NAV ──────────────────────────────────────────── */
+  .top-nav {
+    position: relative; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 24px; gap: 16px;
+  }
+  .nav-brand {
+    display: inline-flex; align-items: center; gap: 8px;
+    text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.92rem;
+  }
+  .nav-logo { border-radius: 6px; }
+  .nav-links { display: flex; gap: 4px; }
+  .nav-link {
+    padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 500;
+    color: var(--text-muted); text-decoration: none; transition: color .15s, background .15s;
+  }
+  .nav-link:hover { color: var(--text); background: rgba(255,255,255,.06); }
+  @media (max-width: 480px) { .nav-links { display: none; } }
+
   .lang-toggle {
-    position: absolute; top: 20px; right: 24px;
-    display: flex; gap: 2px;
+    display: flex; gap: 2px; flex-shrink: 0;
     background: rgba(10, 20, 34, 0.7); border: 1px solid var(--border);
-    border-radius: 8px; padding: 3px; z-index: 10; backdrop-filter: blur(8px);
+    border-radius: 8px; padding: 3px; backdrop-filter: blur(8px);
   }
   :global(.lang-btn) {
     padding: 3px 10px; border-radius: 5px; border: none; background: transparent;

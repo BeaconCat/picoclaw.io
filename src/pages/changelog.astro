@@ -12,7 +12,7 @@ const GITHUB_BASE = 'https://github.com/sipeed/picoclaw/releases/tag/';
 >
   <nav class="top-nav">
     <a href="/" class="nav-brand">
-      <img src="/logo.webp" alt="" width="28" height="28" class="nav-logo" />
+      <img src="/icon.png" alt="" width="28" height="28" class="nav-logo" />
       <span>PicoClaw</span>
     </a>
     <div class="nav-links">
@@ -46,10 +46,7 @@ const GITHUB_BASE = 'https://github.com/sipeed/picoclaw/releases/tag/';
           <div class="release-body">
             <ul>{r.highlights.map((h) => <li set:html={h} />)}</ul>
             {r.details.length > 0 && (
-              <details>
-                <summary>Details</summary>
-                <ul>{r.details.map((d) => <li set:html={d} />)}</ul>
-              </details>
+              <ul>{r.details.map((d) => <li set:html={d} />)}</ul>
             )}
           </div>
         </article>
@@ -70,10 +67,7 @@ const GITHUB_BASE = 'https://github.com/sipeed/picoclaw/releases/tag/';
           <div class="release-body">
             <ul>{r.highlights.map((h) => <li set:html={h} />)}</ul>
             {r.details.length > 0 && (
-              <details>
-                <summary>详细内容</summary>
-                <ul>{r.details.map((d) => <li set:html={d} />)}</ul>
-              </details>
+              <ul>{r.details.map((d) => <li set:html={d} />)}</ul>
             )}
           </div>
         </article>
@@ -221,13 +215,6 @@ const GITHUB_BASE = 'https://github.com/sipeed/picoclaw/releases/tag/';
   }
   .release-body :global(strong) { color: var(--text); }
   .release-body :global(p) { margin: 8px 0; }
-  .release-body :global(details) { margin-top: 12px; }
-  .release-body :global(summary) {
-    font-size: 0.8rem; font-weight: 500; color: var(--accent); cursor: pointer;
-    padding: 4px 0; user-select: none;
-  }
-  .release-body :global(summary:hover) { text-decoration: underline; }
-  .release-body :global(details ul) { margin-top: 8px; }
 
   .all-releases { text-align: center; margin-top: 32px; }
   .all-releases-link {
@@ -248,9 +235,9 @@ const GITHUB_BASE = 'https://github.com/sipeed/picoclaw/releases/tag/';
   .footer-sep { color: var(--border-h); }
 
   .lang-toggle {
-    position: absolute; top: 20px; right: 24px; display: flex; gap: 2px;
+    display: flex; gap: 2px; flex-shrink: 0;
     background: rgba(10,20,34,.7); border: 1px solid var(--border); border-radius: 8px;
-    padding: 3px; z-index: 10; backdrop-filter: blur(8px);
+    padding: 3px; backdrop-filter: blur(8px);
   }
   .lang-btn { padding: 3px 10px; border-radius: 5px; border: none; background: transparent; color: var(--text-muted); font-size: 0.73rem; font-weight: 500; cursor: pointer; transition: background .15s, color .15s; }
   .lang-btn.active { background: var(--border-h); color: var(--text); }

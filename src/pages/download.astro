@@ -8,7 +8,7 @@ import Base from '../layouts/Base.astro';
 >
   <nav class="top-nav">
     <a href="/" class="nav-brand">
-      <img src="/logo.webp" alt="" width="28" height="28" class="nav-logo" />
+      <img src="/icon.png" alt="" width="28" height="28" class="nav-logo" />
       <span>PicoClaw</span>
     </a>
     <div class="nav-links">
@@ -535,9 +535,9 @@ import Base from '../layouts/Base.astro';
   .footer-sep { color: var(--border-h); }
 
   .lang-toggle {
-    position: absolute; top: 20px; right: 24px; display: flex; gap: 2px;
+    display: flex; gap: 2px; flex-shrink: 0;
     background: rgba(10,20,34,.7); border: 1px solid var(--border); border-radius: 8px;
-    padding: 3px; z-index: 10; backdrop-filter: blur(8px);
+    padding: 3px; backdrop-filter: blur(8px);
   }
   :global(.lang-btn) { padding:3px 10px; border-radius:5px; border:none; background:transparent; color:var(--text-muted); font-size:0.73rem; font-weight:500; cursor:pointer; transition:background .15s,color .15s; }
   :global(.lang-btn.active) { background:var(--border-h); color:var(--text); }
