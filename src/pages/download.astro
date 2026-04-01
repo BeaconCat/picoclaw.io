@@ -14,6 +14,7 @@ import Base from '../layouts/Base.astro';
     <div class="nav-links">
       <a href="/download/" class="nav-link active" data-i18n="nav-download">Download</a>
       <a href="/changelog/" class="nav-link" data-i18n="nav-changelog">Changelog</a>
+      <a href="/blog/" class="nav-link" data-i18n="nav-blog">Blog</a>
       <a href="https://docs.picoclaw.io" target="_blank" rel="noopener noreferrer" class="nav-link" data-i18n="nav-docs">Docs</a>
       <a href="https://github.com/sipeed/picoclaw" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a>
     </div>
@@ -126,9 +127,9 @@ import Base from '../layouts/Base.astro';
     var TRANSLATIONS = {
       en: {
         'dl-title':             'Download PicoClaw',
-        'dl-desc':              'Choose your platform and architecture. Single binary, no dependencies \u2014 just download and run.',
+        'dl-desc':              'Choose your platform and architecture. Single binary, no dependencies — just download and run.',
         'section-label':        'Choose your platform',
-        'loading':              'Loading\u2026',
+        'loading':              'Loading…',
         'modal-sub':            'Select architecture to download',
         'modal-foot-note':      'Always downloads the latest release',
         'checksums':            'SHA256 Checksums',
@@ -143,34 +144,36 @@ import Base from '../layouts/Base.astro';
         'install-cli-desc':     'After downloading, run the onboard command to initialize your workspace:',
         'install-docs-title':   'Full Guide',
         'install-docs-desc':    'For detailed installation instructions, Docker setup, and Android/Termux support:',
-        'install-docs-link':    'Read Installation Guide \u2192',
+        'install-docs-link':    'Read Installation Guide →',
         'nav-download':         'Download',
         'nav-changelog':        'Changelog',
+        'nav-blog':             'Blog',
         'nav-docs':             'Docs',
       },
       zh: {
-        'dl-title':             '\u4e0b\u8f7d PicoClaw',
-        'dl-desc':              '\u9009\u62e9\u4f60\u7684\u5e73\u53f0\u548c\u67b6\u6784\u3002\u5355\u4e00\u4e8c\u8fdb\u5236\uff0c\u65e0\u4f9d\u8d56\u2014\u2014\u4e0b\u8f7d\u5373\u7528\u3002',
-        'section-label':        '\u9009\u62e9\u5e73\u53f0',
-        'loading':              '\u52a0\u8f7d\u4e2d\u2026',
-        'modal-sub':            '\u9009\u62e9\u67b6\u6784\u4ee5\u4e0b\u8f7d',
-        'modal-foot-note':      '\u59cb\u7ec8\u4e0b\u8f7d\u6700\u65b0\u7248\u672c',
-        'checksums':            'SHA256 \u6821\u9a8c\u548c',
-        'source-label':         '\u4e0b\u8f7d\u6e90\uff1a',
-        'footer-docs':          '\u6587\u6863',
-        'footer-changelog':     '\u66f4\u65b0\u65e5\u5fd7',
-        'arch-count':           function(n) { return n + ' \u4e2a\u67b6\u6784'; },
-        'hero-dl-for':          function(os, arch) { return '\u4e0b\u8f7d ' + os + ' (' + arch + ') \u7248'; },
-        'hero-dl-other':        '\u5176\u4ed6\u5e73\u53f0',
-        'install-title':        '\u5feb\u901f\u5b89\u88c5',
-        'install-cli-title':    'CLI \u521d\u59cb\u5316',
-        'install-cli-desc':     '\u4e0b\u8f7d\u540e\uff0c\u8fd0\u884c onboard \u547d\u4ee4\u521d\u59cb\u5316\u5de5\u4f5c\u533a\uff1a',
-        'install-docs-title':   '\u5b8c\u6574\u6307\u5357',
-        'install-docs-desc':    '\u8be6\u7ec6\u7684\u5b89\u88c5\u8bf4\u660e\u3001Docker \u90e8\u7f72\u548c Android/Termux \u652f\u6301\uff1a',
-        'install-docs-link':    '\u9605\u8bfb\u5b89\u88c5\u6307\u5357 \u2192',
-        'nav-download':         '\u4e0b\u8f7d',
-        'nav-changelog':        '\u66f4\u65b0\u65e5\u5fd7',
-        'nav-docs':             '\u6587\u6863',
+        'dl-title':             '下载 PicoClaw',
+        'dl-desc':              '选择你的平台和架构。单一二进制，无依赖——下载即用。',
+        'section-label':        '选择平台',
+        'loading':              '加载中…',
+        'modal-sub':            '选择架构以下载',
+        'modal-foot-note':      '始终下载最新版本',
+        'checksums':            'SHA256 校验和',
+        'source-label':         '下载源：',
+        'footer-docs':          '文档',
+        'footer-changelog':     '更新日志',
+        'arch-count':           function(n) { return n + ' 个架构'; },
+        'hero-dl-for':          function(os, arch) { return '下载 ' + os + ' (' + arch + ') 版'; },
+        'hero-dl-other':        '其他平台',
+        'install-title':        '快速安装',
+        'install-cli-title':    'CLI 初始化',
+        'install-cli-desc':     '下载后，运行 onboard 命令初始化工作区：',
+        'install-docs-title':   '完整指南',
+        'install-docs-desc':    '详细的安装说明、Docker 部署和 Android/Termux 支持：',
+        'install-docs-link':    '阅读安装指南 →',
+        'nav-download':         '下载',
+        'nav-changelog':        '更新日志',
+        'nav-blog':             '博客',
+        'nav-docs':             '文档',
       },
     };
 
@@ -217,7 +220,7 @@ import Base from '../layouts/Base.astro';
         { label: 'ARM64', desc: 'Windows on ARM', file: 'picoclaw_Windows_arm64.zip' },
       ]},
       { id: 'linux', name: 'Linux', icon: 'linux', color: '#f5a623', archs: [
-        { label: 'x86_64', desc: '64-bit \u00b7 Recommended', file: 'picoclaw_Linux_x86_64.tar.gz', packages: { deb: 'picoclaw_x86_64.deb', rpm: 'picoclaw_x86_64.rpm' } },
+        { label: 'x86_64', desc: '64-bit · Recommended', file: 'picoclaw_Linux_x86_64.tar.gz', packages: { deb: 'picoclaw_x86_64.deb', rpm: 'picoclaw_x86_64.rpm' } },
         { label: 'ARM64 (arm64)', desc: 'Raspberry Pi 4/5, modern SBCs', file: 'picoclaw_Linux_arm64.tar.gz', packages: { deb: 'picoclaw_aarch64.deb', rpm: 'picoclaw_aarch64.rpm' } },
         { label: 'ARMv7 (armv7)', desc: 'Raspberry Pi 2/3, older SBCs', file: 'picoclaw_Linux_armv7.tar.gz', packages: { deb: 'picoclaw_armv7.deb', rpm: 'picoclaw_armv7.rpm' } },
         { label: 'ARMv6 (armv6)', desc: 'Raspberry Pi 1 / Zero', file: 'picoclaw_Linux_armv6.tar.gz', packages: { deb: 'picoclaw_armv6.deb', rpm: 'picoclaw_armv6.rpm' } },
@@ -226,12 +229,12 @@ import Base from '../layouts/Base.astro';
         { label: 's390x', desc: 'IBM Z / LinuxONE', file: 'picoclaw_Linux_s390x.tar.gz', packages: { deb: 'picoclaw_s390x.deb', rpm: 'picoclaw_s390x.rpm' } },
       ]},
       { id: 'freebsd', name: 'FreeBSD', icon: 'freebsd', color: '#d03030', archs: [
-        { label: 'x86_64', desc: '64-bit \u00b7 Recommended', file: 'picoclaw_Freebsd_x86_64.tar.gz' },
+        { label: 'x86_64', desc: '64-bit · Recommended', file: 'picoclaw_Freebsd_x86_64.tar.gz' },
         { label: 'ARM64 (arm64)', desc: 'AArch64', file: 'picoclaw_Freebsd_arm64.tar.gz' },
         { label: 'ARMv7 (armv7)', desc: 'ARM 32-bit', file: 'picoclaw_Freebsd_armv7.tar.gz' },
       ]},
       { id: 'netbsd', name: 'NetBSD', icon: 'netbsd', color: '#FF6600', archs: [
-        { label: 'x86_64', desc: '64-bit \u00b7 Recommended', file: 'picoclaw_Netbsd_x86_64.tar.gz' },
+        { label: 'x86_64', desc: '64-bit · Recommended', file: 'picoclaw_Netbsd_x86_64.tar.gz' },
         { label: 'ARM64 (arm64)', desc: 'AArch64', file: 'picoclaw_Netbsd_arm64.tar.gz' },
       ]},
       { id: 'android', name: 'Android', icon: 'android', color: '#3ddc84',
@@ -244,7 +247,7 @@ import Base from '../layouts/Base.astro';
       },
       { id: 'docker', name: 'Docker', icon: 'docker', color: '#2496ed',
         link: 'https://docs.picoclaw.io/docs/docker',
-        sub: { en: 'View Guide', zh: '\u67e5\u770b\u6559\u7a0b' },
+        sub: { en: 'View Guide', zh: '查看教程' },
       },
     ];
 
@@ -378,7 +381,7 @@ import Base from '../layouts/Base.astro';
       document.getElementById('hero-dl-label').textContent = t('hero-dl-for')(m.platform.name, d.arch);
       document.getElementById('hero-dl-btn').href = getBaseDL(m.arch.repo) + m.arch.file;
       document.getElementById('hero-dl-btn').target = '_blank';
-      document.getElementById('hero-dl-sub').innerHTML = m.arch.file + ' \u00b7 <a href="#os-grid">' + t('hero-dl-other') + '</a>';
+      document.getElementById('hero-dl-sub').innerHTML = m.arch.file + ' · <a href="#os-grid">' + t('hero-dl-other') + '</a>';
       document.getElementById('hero-dl').style.display = '';
       document.getElementById('hero-dl-sub').style.display = '';
       document.getElementById('hero-dl-expand').addEventListener('click', function() { openModal(m.platform); });
@@ -388,7 +391,7 @@ import Base from '../layouts/Base.astro';
       if (!m) return;
       document.getElementById('hero-dl-label').textContent = t('hero-dl-for')(m.platform.name, d.arch);
       document.getElementById('hero-dl-btn').href = getBaseDL(m.arch.repo) + m.arch.file;
-      document.getElementById('hero-dl-sub').innerHTML = m.arch.file + ' \u00b7 <a href="#os-grid">' + t('hero-dl-other') + '</a>';
+      document.getElementById('hero-dl-sub').innerHTML = m.arch.file + ' · <a href="#os-grid">' + t('hero-dl-other') + '</a>';
     }
     var _origSwitch = switchLang;
     switchLang = function(lang) { _origSwitch(lang); updateHero(); };
