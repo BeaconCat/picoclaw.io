@@ -4,7 +4,13 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/download-shared.css';
 import { Image } from 'astro:assets';
-import wechatQr from '../assets/blog/hello-world-picoclaw-official/wechat-qr.jpg';
+import logoImg from '../assets/index/logo.webp';
+import hardwareBanner from '../assets/index/hardware-banner.jpg';
+import compareImg from '../assets/index/compare.jpg';
+import gifCode from '../assets/index/picoclaw_code.gif';
+import gifMemory from '../assets/index/picoclaw_memory.gif';
+import gifSearch from '../assets/index/picoclaw_search.gif';
+import wechatQr from '../assets/index/wechat-qr.jpg';
 ---
 <Base>
   <Nav />
@@ -14,7 +20,7 @@ import wechatQr from '../assets/blog/hello-world-picoclaw-official/wechat-qr.jpg
       <!-- Left: text content -->
       <div class="hero-left">
         <div class="logo-wrap reveal d1">
-          <img src="/logo.webp" alt="PicoClaw — Ultra-lightweight AI assistant for Raspberry Pi, RISC-V and Linux" width="160" height="160" />
+          <Image src={logoImg} alt="PicoClaw — Ultra-lightweight AI assistant for Raspberry Pi, RISC-V and Linux" width={160} height={160} />
         </div>
 
         <h1 class="hero-headline reveal d1" data-i18n="hero-headline">Ultra-Lightweight AI Assistant<br/>Written in Go</h1>
@@ -160,17 +166,17 @@ import wechatQr from '../assets/blog/hello-world-picoclaw-official/wechat-qr.jpg
       <p class="section-desc reveal d3" data-i18n="demo-desc">From coding to research, PicoClaw handles it all — on any hardware.</p>
       <div class="demo-grid">
         <div class="demo-card reveal d3">
-          <img src="/assets/picoclaw_code.gif" alt="PicoClaw code assistant demo" width="320" height="240" loading="lazy" />
+          <img src={gifCode.src} alt="PicoClaw code assistant demo" width="320" height="240" loading="lazy" />
           <h3 data-i18n="demo-code">Full-Stack Engineer Mode</h3>
           <p data-i18n="demo-code-sub">Develop &middot; Deploy &middot; Scale</p>
         </div>
         <div class="demo-card reveal d3">
-          <img src="/assets/picoclaw_memory.gif" alt="PicoClaw scheduling and memory demo" width="320" height="240" loading="lazy" />
+          <img src={gifMemory.src} alt="PicoClaw scheduling and memory demo" width="320" height="240" loading="lazy" />
           <h3 data-i18n="demo-memory">Logging &amp; Planning</h3>
           <p data-i18n="demo-memory-sub">Schedule &middot; Automate &middot; Remember</p>
         </div>
         <div class="demo-card reveal d3">
-          <img src="/assets/picoclaw_search.gif" alt="PicoClaw web search demo" width="320" height="240" loading="lazy" />
+          <img src={gifSearch.src} alt="PicoClaw web search demo" width="320" height="240" loading="lazy" />
           <h3 data-i18n="demo-search">Web Search &amp; Learning</h3>
           <p data-i18n="demo-search-sub">Discover &middot; Insights &middot; Trends</p>
         </div>
@@ -184,7 +190,7 @@ import wechatQr from '../assets/blog/hello-world-picoclaw-official/wechat-qr.jpg
       <h2 class="section-heading reveal d3" data-i18n="hw-title">Runs on Anything</h2>
       <p class="section-desc reveal d3" data-i18n="hw-desc">From $10 RISC-V boards to Raspberry Pi to Android phones — one binary, all platforms.</p>
       <div class="hardware-banner reveal d4">
-        <img src="/assets/hardware-banner.jpg" alt="PicoClaw hardware compatibility — Raspberry Pi, RISC-V, ARM, Android" width="100%" loading="lazy" />
+        <Image src={hardwareBanner} alt="PicoClaw hardware compatibility — Raspberry Pi, RISC-V, ARM, Android" width={2000} height={400} loading="lazy" style="width:100%;height:auto;" />
       </div>
       <div class="hardware-products reveal d4">
         <a class="hw-product" href="https://www.aliexpress.com/item/1005006519668532.html" target="_blank" rel="noopener noreferrer">
@@ -250,7 +256,7 @@ import wechatQr from '../assets/blog/hello-world-picoclaw-official/wechat-qr.jpg
         </table>
       </div>
       <div class="comparison-visual reveal d4">
-        <img src="/assets/compare.jpg" alt="PicoClaw performance comparison chart" width="512" loading="lazy" style="max-width:100%;height:auto;border-radius:12px;" />
+        <Image src={compareImg} alt="PicoClaw performance comparison chart" width={512} height={425} loading="lazy" style="max-width:100%;height:auto;border-radius:12px;" />
       </div>
     </div>
   </section>
