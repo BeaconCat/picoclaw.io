@@ -106,12 +106,6 @@ You won't see these directly, but they matter:
 
 ---
 
-## 7. macOS Users
-
-A proper DMG installer is now available — just double-click to install!
-
----
-
 ## In One Line
 
 v0.2.5 makes PicoClaw **more capable** (new AI models + new tools), **easier to use** (refreshed UI + first-time tour), and **more stable** (dozens of bug fixes) — a solid upgrade
