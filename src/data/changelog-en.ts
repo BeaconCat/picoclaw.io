@@ -1,5 +1,30 @@
 export const releases = [
   {
+    version: 'v0.2.7',
+    date: '2026-04-22',
+    highlights: [
+      '<strong>Launcher Auth Flow Upgrade</strong>: Unified login/setup/logout with browserless OAuth support',
+      '<strong>Dashboard Auth Upgrade</strong>: Web UI authentication migrated from Token to Password',
+      '<strong>Gateway Auth Simplification</strong>: Consolidated from PID+Token to Token-only auth',
+      '<strong>Two-Phase Agent Loop Refactor</strong>: Execution pipeline split and reorganized for better maintainability',
+      '<strong>Native Gemini Provider</strong>: Added native Gemini provider with separated thought/output messages',
+      '<strong>Context &amp; Memory Improvements</strong>: Added <code>/context</code> usage indicator ring and extended <code>/clear</code> to purge Seahorse short-term memory DB',
+    ],
+    details: [
+      'Scheduled task isolation: each job now runs in an independent session',
+      'Improved MCP/Discovery hot-reload recovery, including stronger recovery after unsupported image inputs',
+      'Tool-calling consistency fix: stable tool-call IDs across turns when reusing calls',
+      'Web tools page refactor: switched to "Tool Library + Web Search Settings" tab structure',
+      'Markdown syntax highlighting support for chat and skill content',
+      'Composer/Tooltip disabled-state reason prompts improved with regression fixes',
+      'Added configurable Sogou search backend with stronger proxy/network-error fallback',
+      'Channel config evolved toward multi-instance management with list-based channel editing',
+      'Added Android arm64 cross-compilation and integrated it into the GoReleaser pipeline',
+      'CI upgraded to pnpm/action-setup workflow and README install steps updated',
+      'Documentation system reorganized: added session/routing docs and updated Gemini protocol docs',
+    ],
+  },
+  {
     version: 'v0.2.6',
     date: '2026-04-08',
     highlights: [

@@ -1,5 +1,30 @@
 export const releases = [
   {
+    version: 'v0.2.7',
+    date: '2026-04-22',
+    highlights: [
+      '<strong>Launcher 认证流程升级</strong>：统一 login/setup/logout，支持 OAuth 无浏览器登录',
+      '<strong>Dashboard 鉴权升级</strong>：Web UI 从 Token 认证迁移为 Password 认证',
+      '<strong>Gateway 鉴权调整</strong>：由 PID+Token 收敛为 Token',
+      '<strong>Agent Loop 两阶段重构</strong>：执行管线拆分重组，可维护性更高',
+      '<strong>原生 Gemini Provider</strong>：新增 Gemini Provider，并分离 thought 与 output 消息',
+      '<strong>上下文与记忆增强</strong>：新增 /context 指令与上下文用量指示环，/clear 支持清理 Seahorse 短时记忆数据库',
+    ],
+    details: [
+      '定时任务执行隔离：每次 Job 使用独立会话',
+      'MCP/Discovery 热重载恢复增强，图片输入不支持后的恢复能力增强',
+      '工具调用一致性修复：跨轮复用 tool-call ID 保持稳定',
+      'Web 工具页重构：改为“工具库 + Web 搜索设置”标签结构',
+      '新增可配置 Sogou 搜索后端，增强代理与网络错误 fallback',
+      '聊天与技能内容支持 Markdown 语法高亮',
+      'Composer/Tooltip 禁用态原因提示增强并修复回归',
+      'Channel 配置向多实例演进，支持 channel 列表化编辑',
+      '新增 Android arm64 交叉编译，并纳入 GoReleaser 发布链路',
+      'CI 升级为 pnpm/action-setup 流程并同步 README 安装步骤',
+      '文档体系重组：补充 session/routing，更新 Gemini 协议文档',
+    ],
+  },
+  {
     version: 'v0.2.6',
     date: '2026-04-08',
     highlights: [
