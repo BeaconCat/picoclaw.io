@@ -1,5 +1,30 @@
 export const releases = [
   {
+    version: 'v0.2.9',
+    date: '2026-05-24',
+    highlights: [
+      '<strong>Multi-Agent Collaboration</strong>: Agent discovery prompts, cross-agent delegation, task dispatch via TargetAgentID',
+      '<strong>Provider Ecosystem Expansion</strong>: Added gpt4free, SiliconFlow, Gemini Web Search; unified provider metadata and backend catalog',
+      '<strong>Web Console Major Enhancement</strong>: Model catalog browsing, provider connectivity verification, chat detail visibility, code block collapse/copy, MCP config UI',
+      '<strong>MCP Streamable HTTP</strong>: Added Streamable HTTP transport for MCP protocol',
+      '<strong>Agent Self-Evolution</strong>: Runtime self-evolution configuration for automatic behavior optimization',
+      '<strong>LINE SDK Migration</strong>: Migrated from hand-rolled HTTP to official LINE Bot SDK v8',
+    ],
+    details: [
+      'Added Bedrock streaming inference and general streaming transport support',
+      'Persisted model_name in chat history for cross-session model tracking',
+      'Added Slack Webhook Channel and Telegram media group support',
+      'Added factory reset feature',
+      'Added stop command support',
+      'Request-scoped context policies for per-request dynamic Agent behavior',
+      'Fix: Windows PowerShell encoding bypass injection vulnerability',
+      'Fix: DeepSeek stream reasoning_content loss, MiMo history replay',
+      'Fix: Pico attachment image media loss across clients, Telegram SVG handling',
+      'Go bumped to 1.25.10 to fix stdlib vulnerabilities',
+      'Added Portuguese (Brazil) full localization',
+    ],
+  },
+  {
     version: 'v0.2.8',
     date: '2026-04-30',
     highlights: [
