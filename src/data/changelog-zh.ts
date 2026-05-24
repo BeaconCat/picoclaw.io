@@ -1,5 +1,28 @@
 export const releases = [
   {
+    version: 'v0.2.8',
+    date: '2026-04-30',
+    highlights: [
+      '<strong>移除 TUI 组件</strong>：终端 UI 下线，替换为轻量 CLI 交互模式',
+      '<strong>跨平台串口工具</strong>：原生串口交互，支持嵌入式硬件调试（Windows/macOS/Linux）',
+      '<strong>MCP 能力全面增强</strong>：完整 MCP CLI 命令体系，HTTP 会话管理和本地服务支持',
+      '<strong>交互体验统一优化</strong>：全渠道工具反馈动效，思考内容可见性切换，配置保存重启提示',
+      '<strong>自定义模型端点</strong>：CLI 支持自定义 OpenAI 兼容端点配置',
+    ],
+    details: [
+      '结构化提示词分层，按能力槽管理工具提示词',
+      'MCP CLI 管理命令：show/add/list/remove/test/edit',
+      'Web 端文件下载功能',
+      'CI 拆分标签创建和发布为独立工作流',
+      '新增 stale bot 自动关闭无活跃度 Issue/PR',
+      '修复：MCP 工具调用发送 null 而非空对象',
+      '修复：Windows 启动器子进程控制台闪烁',
+      '修复：DeepSeek v4 思考历史丢失',
+      '修复：飞书图片下载 API fallback 和附件展示',
+      '修复：PID=1 容器环境单例检查',
+    ],
+  },
+  {
     version: 'v0.2.7',
     date: '2026-04-22',
     highlights: [

@@ -1,5 +1,28 @@
 export const releases = [
   {
+    version: 'v0.2.8',
+    date: '2026-04-30',
+    highlights: [
+      '<strong>TUI Removal</strong>: Legacy terminal UI removed, replaced by lightweight CLI interaction mode',
+      '<strong>Cross-Platform Serial Tool</strong>: Native serial port interaction for embedded hardware debugging (Windows/macOS/Linux)',
+      '<strong>MCP Enhancement</strong>: Complete MCP CLI command system with HTTP session management and local service support',
+      '<strong>Unified UX</strong>: Channel-wide tool feedback animations, thinking visibility toggle, config save restart prompt',
+      '<strong>Custom Model Endpoints</strong>: CLI support for custom OpenAI-compatible endpoint configuration',
+    ],
+    details: [
+      'Structured prompt layering with capability-slot tool prompt management',
+      'MCP CLI management commands: show/add/list/remove/test/edit',
+      'Web file download from chat interface',
+      'Split tag creation and release into independent CI workflows',
+      'Stale bot for auto-closing inactive Issues and PRs',
+      'Fix: MCP tool call sending null instead of empty object',
+      'Fix: Windows launcher subprocess console flashing',
+      'Fix: DeepSeek v4 thinking history loss',
+      'Fix: Feishu image download API fallback and attachment display',
+      'Fix: PID=1 singleton check for container environments',
+    ],
+  },
+  {
     version: 'v0.2.7',
     date: '2026-04-22',
     highlights: [
