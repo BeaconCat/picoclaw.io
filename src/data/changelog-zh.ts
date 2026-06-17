@@ -1,5 +1,30 @@
 export const releases = [
   {
+    version: 'v0.2.9',
+    date: '2026-05-24',
+    highlights: [
+      '<strong>多 Agent 协作体系</strong>：Agent 发现提示词、跨 Agent 委托、任务分发（TargetAgentID）',
+      '<strong>Provider 生态扩展</strong>：新增 gpt4free、SiliconFlow、Gemini Web Search，模型目录统一后端',
+      '<strong>Web 控制台大幅增强</strong>：模型目录浏览、Provider 连通性验证、聊天详情可见性、代码块折叠/复制、MCP 配置 UI',
+      '<strong>MCP Streamable HTTP</strong>：MCP 协议新增 Streamable HTTP 传输支持',
+      '<strong>Agent 自进化能力</strong>：运行时自我进化配置，自动优化行为策略',
+      '<strong>LINE SDK 官方化</strong>：从手写 HTTP 代码迁移至官方 LINE Bot SDK v8',
+    ],
+    details: [
+      '新增 Bedrock 流式推理和通用流式传输支持',
+      '聊天历史持久化 model_name，支持跨会话模型追踪',
+      '新增 Slack Webhook Channel 和 Telegram 媒体组支持',
+      '新增恢复出厂设置功能',
+      '新增 stop 命令支持',
+      '请求级上下文策略，按请求动态调整 Agent 行为',
+      '修复：Windows PowerShell 编码绕过注入安全漏洞',
+      '修复：DeepSeek 流式推理内容丢失、MiMo 历史重放',
+      '修复：Pico 附件图片跨客户端丢失、Telegram SVG 媒体处理',
+      'Go 升级至 1.25.10，修复 stdlib 安全漏洞',
+      '新增葡萄牙语（巴西）完整本地化支持',
+    ],
+  },
+  {
     version: 'v0.2.8',
     date: '2026-04-30',
     highlights: [
