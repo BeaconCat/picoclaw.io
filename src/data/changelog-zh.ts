@@ -1,5 +1,34 @@
 export const releases = [
   {
+    version: 'v0.3.0',
+    date: '2026-06-15',
+    highlights: [
+      '<strong>稳定性与健壮性加固</strong>：覆盖 agent、tools、channels、context 的全面健壮性整治——安全类型断言、显式 Close() 错误处理、防 panic、瞬态 LLM 错误重试',
+      '<strong>Provider 扩展</strong>：原生 Kagi 网络搜索 Provider，Azure OpenAI 托管身份（Entra ID）认证',
+      '<strong>Web 控制台</strong>：聊天图片粘贴与拖拽上传、代码块行号与换行切换、输入框 Shift+Enter 提示',
+      '<strong>Cron 工具</strong>：新增 get/update 动作，支持按 channel 访问控制',
+      '<strong>安全</strong>：Launcher 访问控制加固、SSRF 防护扩展至 198.18.0.0/15、无 scheme URL 工作区防护',
+    ],
+    details: [
+      '原生 Kagi 网络搜索 Provider',
+      'Azure OpenAI 托管身份（Entra ID）认证',
+      'DeepSeek thinking 字段映射（OpenAI 兼容流式）',
+      'MiMo Provider 通用模型目录',
+      'Web 控制台聊天图片粘贴与拖拽上传',
+      '代码块行号与换行切换',
+      'Cron 工具 get/update 动作，按 channel 限制访问',
+      '出站 message 工具支持媒体附件',
+      '历史引导时保留每条消息 created_at 时间戳',
+      '新增本地化：捷克语（cs）、孟加拉语（bn-IN）',
+      '修复：agent loop 稳定性（Cond 计数器替代 WaitGroup）',
+      '修复：健康检查始终返回 not-ready',
+      '修复：Codex 流式工具调用丢失、Discord 图片下载、Telegram 位置消息',
+      '修复：exec 工作区相对路径、Windows os.Root API、dm_scope 持久化',
+      '加固全代码库类型断言与 Close() 错误处理',
+      '飞书（Larksuite）适配 oapi-sdk-go v3.9.4；Go 升级至 1.25.11',
+    ],
+  },
+  {
     version: 'v0.2.9',
     date: '2026-05-24',
     highlights: [

@@ -1,5 +1,34 @@
 export const releases = [
   {
+    version: 'v0.3.0',
+    date: '2026-06-15',
+    highlights: [
+      '<strong>Reliability & Hardening</strong>: Sweeping robustness pass across agent, tools, channels, and context — safe type-assertion guards, explicit Close() error handling, panic-safety, and transient LLM error retry',
+      '<strong>Provider Expansion</strong>: Native Kagi web search provider and Azure OpenAI managed-identity (Entra ID) authentication',
+      '<strong>Web Console</strong>: Chat image paste and drag-and-drop upload, code block line numbers with wrap toggle, shift-enter composer hint',
+      '<strong>Cron Tool</strong>: Added get/update actions with per-channel access control',
+      '<strong>Security</strong>: Launcher access-control hardening, SSRF guard extended to 198.18.0.0/15, scheme-less URL workspace guard',
+    ],
+    details: [
+      'Native Kagi web search provider',
+      'Azure OpenAI managed identity (Entra ID) authentication',
+      'DeepSeek thinking-field mapping for OpenAI-compatible streaming',
+      'CommonModels catalog for the MiMo provider',
+      'Chat image paste and drag-and-drop upload in Web Console',
+      'Code block line numbers and wrap toggle',
+      'Cron tool get/update actions with per-channel access restriction',
+      'Outbound message tool supports media attachments',
+      'Per-message created_at timestamps preserved across history bootstrap',
+      'New locales: Czech (cs) and Bangla (bn-IN)',
+      'Fix: agent loop stability (WaitGroup replaced with Cond-based counter)',
+      'Fix: health check always returning not-ready',
+      'Fix: streamed Codex tool calls dropped; Discord image download; Telegram location messages',
+      'Fix: exec workspace-relative paths; os.Root API on Windows; dm_scope persistence',
+      'Hardened type assertions and Close() error handling across the codebase',
+      'Larksuite (Feishu) adapted to oapi-sdk-go v3.9.4; Go bumped to 1.25.11',
+    ],
+  },
+  {
     version: 'v0.2.9',
     date: '2026-05-24',
     highlights: [
